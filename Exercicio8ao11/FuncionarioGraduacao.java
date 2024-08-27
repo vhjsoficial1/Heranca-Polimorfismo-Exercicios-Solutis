@@ -1,4 +1,4 @@
-public class FuncionarioGraduacao extends Funcionario {
+public class FuncionarioGraduacao extends FuncionarioEnsinoMedio {
     public String universidade;
 
     public FuncionarioGraduacao(String nome, String codigoFuncional, String escolaEnsinoBasico, String escolaEnsinoMedio, String universidade, Comissao comissao) {
