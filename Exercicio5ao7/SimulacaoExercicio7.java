@@ -4,30 +4,32 @@ public class SimulacaoExercicio7 {
 
         for (int i = 0; i < 10; i++){
             if (i < 4){
-                funcionarios[i] = new FuncionarioEnsinoBasico("Funcionário com Ensino Basico " + i, "" + i, "Escola Ensino Básico " + i);
+                funcionarios[i] = new FuncionarioEnsinoBasico("Funcionário com Ensino Básico " + i, i, "Escola Ensino Básico " + i);
             } else if (i < 8){
-                funcionarios[i] = new FuncionarioEnsinoMedio("Funcionário com Ensino Médio " + i, "" + i, "Escola Ensino Básico " + i, "Escola Eensino Médio " + i);
+                funcionarios[i] = new FuncionarioEnsinoMedio("Funcionário com Ensino Médio " + i, i, "Escola Ensino Médio " + i);
             } else {
-                funcionarios[i] = new FuncionarioGraduacao("Funcionário com Graduação " + i, "" + i, "Escola Ensino Básico " + i, "Escola Eensino Médio " + i, "Universidade " + i);
+                funcionarios[i] = new FuncionarioGraduacao("Funcionário com Graduação " + i, i, "Universidade " + i);
             }
         }
         double custosSalariosTotais = 0;
         double custosSalariosEnsinoBasico = 0;
         double custosSalariosEnsinoMedio = 0;
         double custosSalariosGraduacao = 0;
-        for (Funcionario funcionario : funcionarios){
-            custosSalariosTotais += funcionario.getRenda();
-            if (funcionario instanceof FuncionarioGraduacao){
-                custosSalariosGraduacao += funcionario.getRenda();
-            } else if (f instanceof FuncionarioEnsinoMedio){
-                custosSalariosEnsinoMedio += funcionario.getRenda();
+
+        for (int i = 0; i < funcionarios.length; i++) {
+            custosSalariosTotais += funcionarios[i].getRenda();
+            if (funcionarios[i] instanceof FuncionarioGraduacao) {
+                custosSalariosGraduacao += funcionarios[i].getRenda();
+            } else if (funcionarios[i] instanceof FuncionarioEnsinoMedio) {
+                custosSalariosEnsinoMedio += funcionarios[i].getRenda();
             } else {
-                custosSalariosEnsinoBasico += funcionario.getRenda();
+                custosSalariosEnsinoBasico += funcionarios[i].getRenda();
             }
         }
-        System.out.println("Custos totais: R$" + custosSalariosTotais);
-        System.out.println("Custos salários Educação Básica: R$" + custosSalariosEnsinoBasico);
-        System.out.println("Custos salários Ensino Médio: R$" + custosSalariosEnsinoMedio);
-        System.out.println("Custos salários Graduação: R$" + custosSalariosGraduacao);
+
+        System.out.println(String.format("Custos totais: R$ %.2f", custosSalariosTotais));
+        System.out.println(String.format("Custos salários Educação Básica: R$ %.2f", custosSalariosEnsinoBasico));
+        System.out.println(String.format("Custos salários Ensino Médio: R$ %.2f", custosSalariosEnsinoMedio));
+        System.out.println(String.format("Custos salários Graduação: R$ %.2f", custosSalariosGraduacao));
     }
 }
