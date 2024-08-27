@@ -1,6 +1,6 @@
 package Exercicio8ao11;
 
-public class SimulacaoExercio10 {
+public class SimulacaoExercio11 {
     public static void main(String[] args) {
         Funcionario[] funcionarios = new Funcionario[10];
         for (int i = 0; i < 10; i++){
@@ -42,6 +42,10 @@ public class SimulacaoExercio10 {
         System.out.println(String.format("Custos salários Educação Básica: R$ %.2f", custosSalariosEnsinoBasico));
         System.out.println(String.format("Custos salários Ensino Médio: R$ %.2f", custosSalariosEnsinoMedio));
         System.out.println(String.format("Custos salários Graduação: R$ %.2f", custosSalariosGraduacao));
+
+        for (Funcionario funcionario : funcionarios){
+            System.out.println("\n" + funcionario + "\n");
+        }
 }
 
 }
